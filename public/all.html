@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3 Geo Location API all</title>
+</head>
+<body>
+    <h1>Data selfie App</h1>
+    <div id="root"></div>
+    <script>
+        const root = document.getElementById("root");
+    async function getData() {
+        const response = await fetch('/api');
+        const data = await response.json();
+        console.log(data);
+        for(item of data) {
+            const image = document.createElement('img');
+            image.src = item.image;
+            root.append(image);
+        }
+    }
+    getData();
+    
+
+    </script>
+</body>
+</html>
